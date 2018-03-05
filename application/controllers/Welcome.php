@@ -22,4 +22,9 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+	public function tambah_product()
+	{
+		$this->load->view('page/tambah_product');
+	}
 }
