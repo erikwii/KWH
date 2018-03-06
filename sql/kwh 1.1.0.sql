@@ -1,3 +1,21 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 06, 2018 at 05:02 AM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 5.6.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
 -- Database: `kwh`
 --
@@ -76,6 +94,20 @@ CREATE TABLE `invoice` (
   `alamatKirim` varchar(255) NOT NULL,
   `ongkir` int(11) NOT NULL,
   `status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kupon`
+--
+
+CREATE TABLE `kupon` (
+  `IDkupon` int(11) NOT NULL,
+  `namaKupon` varchar(50) NOT NULL,
+  `deskripsiKupon` varchar(255) DEFAULT NULL,
+  `potongan` int(11) NOT NULL,
+  `status` enum('Tidak Aktif','Aktif') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -217,6 +249,12 @@ ALTER TABLE `invoice`
   ADD PRIMARY KEY (`IDinvoice`);
 
 --
+-- Indexes for table `kupon`
+--
+ALTER TABLE `kupon`
+  ADD PRIMARY KEY (`IDkupon`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -297,6 +335,11 @@ ALTER TABLE `chart`
 --
 ALTER TABLE `invoice`
   MODIFY `IDinvoice` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `kupon`
+--
+ALTER TABLE `kupon`
+  MODIFY `IDkupon` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `product`
 --
